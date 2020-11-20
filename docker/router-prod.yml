@@ -21,7 +21,7 @@ services:
     volumes:
       - ../certbot/conf:/etc/letsencrypt
       - ../certbot/www:/var/www/certbot
-    command: certonly --webroot -w /var/www/certbot -d upetition.ca,www.upetition.ca --non-interactive --agree-tos -m upetitionca@gmail.com
+    command: certonly --webroot -w /var/www/certbot -d seuo-uosu.upetition.ca --non-interactive --agree-tos -m uosupetition@gmail.com
     networks:
       - router
 
