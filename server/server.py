@@ -56,7 +56,7 @@ def add_student():
     logger.info('Hit route %s', request.path)
     data = request.get_json()
 
-    student_email = data['student_email']
+    student_email = data['student_email'].strip()
 
     if not re.search('@uottawa.ca$', student_email):
         error = jsonify({
@@ -76,7 +76,7 @@ def add_student():
         return make_response(error, 400)
 
     try:
-        student_number = int(data['student_number'])
+        student_number = int(data['student_number'].strip())
     except Exception:
         error = jsonify({
             'error': 'Le numéro d\'étudiant doit être un numéro / Student number must be a number',
