@@ -1,7 +1,7 @@
-﻿import React, { useState } from "react";
+﻿import React from "react";
 import { Link } from "react-router-dom";
 import styles from "./navbar.module.css";
-import { Button, Menu, MenuItem } from "@material-ui/core";
+import { Button } from "@material-ui/core";
 import PropTypes from 'prop-types';
 
 //TODO Web Template Studio: Add a new link in the NavBar for your page here.
@@ -26,11 +26,6 @@ ButtonLink.propTypes = {
 }
 
 const NavBar = () => {
-  const [anchorResource, setAnchorResource] = useState(null);
-  const [anchorContact, setAnchorContact] = useState(null);
-
-  const handleMenuClose = (setter) => () => setter(null);
-  const handleMenuClick = (setter) => (event) => setter(event.currentTarget);
 
   return (
     <React.Fragment>
@@ -39,61 +34,22 @@ const NavBar = () => {
       </div>
       <nav className="navbar navbar-expand-sm navbar-light border-bottom justify-content-between">
         <ButtonLink className="navbar-brand" to="/">
-          Stop uOttawa surveillance
+        Accueil / Home
         </ButtonLink>
         <div className="navbar-nav">
           <ButtonLink to="Petition">
             Petition
           </ButtonLink>
           <ButtonLink to="Privacy">
-            Privacy
+            Vie privée / Privacy
           </ButtonLink>
-          <Button
-            className="text-capitalize font-weight-normal navbar-light nav-item nav-link active"
-            onClick={handleMenuClick(setAnchorResource)}
-          >
-            Resources
-          </Button>
-          <Button
-            className="text-capitalize font-weight-normal navbar-light nav-item nav-link active"
-            onClick={handleMenuClick(setAnchorContact)}
-          >
-            Contact
-          </Button>
+          <ButtonLink to="Student_Voices">
+            Voix des Étudiants / Student voices
+          </ButtonLink>
+          <ButtonLink to="Submit_Testimonial">
+            Ajoutez votre voix / Add your voice
+          </ButtonLink>
         </div>
-        <Menu
-          id="resource-menu"
-          anchorEl={anchorResource}
-          onClose={handleMenuClose(setAnchorResource)}
-          open={Boolean(anchorResource)}
-          keepMounted
-          className="navbar navbar-light navbar-expand-sm"
-        >
-          <MenuItem component={Link} onClose={handleMenuClose(setAnchorResource)} to="/letter">
-            Open Letter
-          </MenuItem>
-          <MenuItem component={Link} onClose={handleMenuClose(setAnchorResource)} to="/analysis">
-            Policy Analysis
-          </MenuItem>
-          <MenuItem component={Link} onClose={handleMenuClose(setAnchorResource)} to="/student_voices">
-            Student Voices
-          </MenuItem>
-        </Menu>
-        <Menu
-          id="contact-menu"
-          anchorEl={anchorContact}
-          onClose={handleMenuClose(setAnchorContact)}
-          open={Boolean(anchorContact)}
-          keepMounted
-          className="navbar navbar-light navbar-expand-sm"
-        >
-          <MenuItem component={Link} onClose={handleMenuClose(setAnchorContact)} to="/contact">
-            Contact Us
-          </MenuItem>
-          <MenuItem component={Link} onClose={handleMenuClose(setAnchorContact)} to="/submit_testimonial">
-            Add Your Voice
-          </MenuItem>
-        </Menu>
       </nav>
     </React.Fragment>
   );

@@ -26,7 +26,7 @@ const TestimonialSubmit = () => {
   const [sending, setSending] = useState(false);
   const [success, setSuccess] = useState(false);
   const [failure, setFailure] = useState(false);
-  const [failText, setFailText] = useState("Something went wrong...");
+  const [failText, setFailText] = useState("Quelque chose a mal fonctionné... / Something went wrong...");
 
   const MAX_CHARS = 1500;
 
@@ -45,7 +45,7 @@ const TestimonialSubmit = () => {
       }
 
       type(false);
-      setFailText("Something went wrong...")
+      setFailText("Quelque chose a mal fonctionné... / Something went wrong...")
   }
 
   const handleYearChange = (event) => {
@@ -55,31 +55,31 @@ const TestimonialSubmit = () => {
   const years = [
     {
       value: '1',
-      label: 'First',
+      label: '1e année / First',
     },
     {
       value: '2',
-      label: 'Second',
+      label: '2e année / Second',
     },
     {
       value: '3',
-      label: 'Third',
+      label: '3e année / Third',
     },
     {
       value: '4',
-      label: 'Fourth',
+      label: '4e année / Fourth',
     },
     {
         value: '5',
-        label: 'Fifth+',
+        label: '5e année et plus / Fifth+',
     },
     {
         value: 'msc',
-        label: 'Masters',
+        label: 'Deuxième cycle / Masters',
     },
     {
         value: 'phd',
-        label: 'Ph.D.',
+        label: 'Doctorat / Ph.D.',
     }
   ];
 
@@ -114,7 +114,7 @@ const TestimonialSubmit = () => {
           setFailure(true);
         }
         else {
-          setFailText("Something went wrong...")
+          setFailText("Quelque chose a mal fonctionné... / Something went wrong...")
           setFailure(true);
         }
       })
@@ -132,7 +132,7 @@ const TestimonialSubmit = () => {
         <div className={`container ${styles.contentSize} pb-5`}>
             <div className="row pt-5 pb-2">
                 <h1>
-                    Add Your Voice
+                Ajoutez votre voix / Add Your Voice
                 </h1>
             </div>
             <Card
@@ -141,17 +141,19 @@ const TestimonialSubmit = () => {
                 <div className="container m-0 p-2 pb-5">
                     <div className="row justify-content-left pb-3">
                         <p className={`${styles.caption}`}>
-                            If you are a University of Ottawa student who has signed the petition, we would love to hear your thoughts! Comments submitted in this form will be subject to review by the uPetition team and, if they are accepted, will be displayed on our Student Voices page.<br /><br />
+                            Nous aimerions connaître votre avis! Les commentaires soumis dans ce formulaire seront soumis à l&apos;examen de l&apos;équipe uPetition et, s&apos;ils sont acceptés, seront affichés sur notre page "Voix d'étudiants".<br /><br />
+
+                            Seul votre prénom (ou &apos;Anonyme&apos; si vous avez été sélectionné) sera affiché, même si vous fournissez votre nom complet".<br /><br />
+                            We would love to hear your thoughts! Comments submitted in this form will be subject to review by the uPetition team and, if they are accepted, will be displayed on our Student Voices page.<br /><br />
                             Only your first name (or &apos;Anonymous&apos; if selected) will be displayed, even if you provide the full name.<br /><br />
-                            Note: Our Student Voices page is currently under construction, but the team is collecting student thoughts while we build!
                         </p>
                     </div>
                     <div className="row justify-content-center p-0 pb-3">
                     <div className="col-sm-12">
                         <TextField
                         required
-                        label="Name"
-                        value={(anonymousCheck && 'Anonymous') || name}
+                        label="Prénom / Name"
+                        value={(anonymousCheck && 'Anonyme / Anonymous') || name}
                         fullWidth
                         onChange={(e) => setName(e.target.value)}
                         disabled={anonymousCheck}
@@ -162,7 +164,7 @@ const TestimonialSubmit = () => {
                     <div className="col-sm-12 col-md-6">
                         <TextField
                         required
-                        label="Program"
+                        label="Programme / Program"
                         value={program}
                         fullWidth
                         onChange={(e) => setProgram(e.target.value)}
@@ -172,7 +174,7 @@ const TestimonialSubmit = () => {
                         <TextField
                             id="year-select"
                             select
-                            label="Year"
+                            label="Anée / Year"
                             value={year}
                             fullWidth
                             onChange={handleYearChange}
@@ -205,10 +207,10 @@ const TestimonialSubmit = () => {
                                 <Checkbox
                                 checked={anonymousCheck}
                                 onChange={(e) => setAnonymousCheck(e.target.checked)}
-                                inputProps={{'aria-label': 'I would like my comment to be displayed anonymously'}}
+                                inputProps={{'aria-label': 'Je souhaite que mon commentaire soit affiché de manière anonyme / I would like my comment to be displayed anonymously'}}
                                 />
                             }
-                            label='I would like my comment to be displayed anonymously'
+                            label='Je souhaite que mon commentaire soit affiché de manière anonyme / I would like my comment to be displayed anonymously'
                             />
                         </FormGroup>
                     </div>
@@ -222,7 +224,7 @@ const TestimonialSubmit = () => {
                             className="justify-right"
                             onClick={handleClick}
                             >
-                            Submit
+                            Soumettre / Submit
                         </Button>
 
                         }
@@ -237,7 +239,7 @@ const TestimonialSubmit = () => {
                     onClose={handleAlertClose(setSuccess)}
                     >
                         <Alert onClose={handleAlertClose(setSuccess)} severity="success">
-                            Your testimonial has been sent! Thank you for your support
+                        Votre témoignage a été envoyé ! Merci pour votre soutien / Your testimonial has been sent! Thank you for your support
                         </Alert>
                     </Snackbar>
                     <Snackbar

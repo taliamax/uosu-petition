@@ -12,13 +12,7 @@ import Petition from "./components/Petition/Petition";
 
 import Verify from "./components/Verify/Verify";
 
-import OpenLetter from "./components/OpenLetter/OpenLetter";
-
-import ContactUs from "./components/ContactUs";
-
 import TestimonialSubmit from "./components/TestimonialSubmit";
-
-import Analysis from "./components/Analysis";
 
 import Testimonials from "./components/Testimonial";
 
@@ -32,9 +26,6 @@ const App = () => {
           <Route path = "/verify" component = { Verify } />
           <Route path = "/Privacy" component = { Privacy } />
           <Route path = "/Petition" component = { Petition } />
-          <Route path = "/Letter" component = { OpenLetter } />
-          <Route path = "/Contact" component = { ContactUs } />
-          <Route path = "/Analysis" component = { Analysis } />
           <Route path = "/Submit_Testimonial" component = { TestimonialSubmit } />
           <Route path = "/student_voices" component = { Testimonials } />
         </Switch>

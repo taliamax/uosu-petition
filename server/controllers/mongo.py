@@ -46,7 +46,7 @@ class MongoDriver(DatabaseDriver):
     def _set_verified(self, id_str: str, client):
         identifier = {'_id': ObjectId(id_str)}
         update = {'verified': True}
-        self.update(identifier, update, client)
+        self._update(identifier, update, client)
 
     def set_student_verified(self, id_str):
         return self._set_verified(id_str, self.database_client)

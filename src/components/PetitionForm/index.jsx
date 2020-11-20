@@ -52,7 +52,7 @@ const PetitionForm = () => {
       }
 
       type(false);
-      setFailText("Something went wrong...")
+      setFailText("Quelque chose a mal fonctionné... / Something went wrong...")
   }
 
   const handleClick = () => {
@@ -84,7 +84,7 @@ const PetitionForm = () => {
           setFailure(true);
         }
         else {
-          setFailText("Something went wrong...")
+          setFailText("Quelque chose a mal fonctionné... / Something went wrong...")
           setFailure(true);
         }
       })
@@ -105,7 +105,7 @@ const PetitionForm = () => {
           <span className="p-2">
             <TextField
               required
-              label="Name"
+              label="Nom / Name"
               value={name}
               onChange={(e) => setName(e.target.value)}
             />
@@ -121,7 +121,7 @@ const PetitionForm = () => {
           <span className="p-2">
             <TextField
               required
-              label="Student Number"
+              label="# d'etudiant / Student #"
               value={studentNumber}
               onChange={(e) => setStudentNumber(e.target.value)}
             />
@@ -134,20 +134,20 @@ const PetitionForm = () => {
                 <Checkbox
                   checked={privacyCheck}
                   onChange={(e) => setPrivacyCheck(e.target.checked)}
-                  inputProps={{'aria-label': 'I have read and accept the privacy statement'}}
+                  inputProps={{'aria-label': "J'ai lu et j'accepte la déclaration de confidentialité / I have read and accept the privacy statement"}}
                 />
               }
-              label='I have read and accept the privacy statement'
+              label="J'ai lu et j'accepte la déclaration de confidentialité / I have read and accept the privacy statement"
             />
             <FormControlLabel
               control={
                 <Checkbox
                   checked={consentCheck}
                   onChange={(e) => setConsentCheck(e.target.checked)}
-                  inputProps={{'aria-label': 'I acknowledge this as consent to add my name to the petition'}}
+                  inputProps={{'aria-label': 'Je reconnais que cela constitue un consentement à ajouter mon nom à la pétition / I acknowledge this as consent to add my name to the petition'}}
                 />
               }
-              label='I acknowledge this as consent to add my name to the petition'
+              label='Je reconnais que cela constitue un consentement à ajouter mon nom à la pétition / I acknowledge this as consent to add my name to the petition'
             />
           </FormGroup>
         </div>
@@ -161,7 +161,7 @@ const PetitionForm = () => {
                 className="justify-right"
                 onClick={handleClick}
                 >
-                Submit
+                Soumettre / Submit
               </Button>
 
             }
@@ -176,7 +176,7 @@ const PetitionForm = () => {
           onClose={handleAlertClose(setSuccess)}
         >
             <Alert onClose={handleAlertClose(setSuccess)} severity="success">
-                You have been successfully added to the petition! Check your email for the confirmation link
+              Vous avez été ajouté avec succès à la pétition ! Vérifiez votre email pour le lien de confirmation / You have been successfully added to the petition! Check your email for the confirmation link
             </Alert>
         </Snackbar>
         <Snackbar
@@ -191,7 +191,7 @@ const PetitionForm = () => {
         {
           (numSigners > 0) &&
           <div className="row justify-content-left pb-2">
-            Signed by {numSigners} verified students
+            Signé par {numSigners} étudiant.e.s vérifiés / Signed by {numSigners} verified students
           </div>
         }
       </div>

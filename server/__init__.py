@@ -11,6 +11,7 @@ from server.controllers.firestore import FirestoreDriver
 from server.controllers.mailgun import MailgunDriver
 from server.controllers.discord import DiscordDriver
 from cryptography.fernet import Fernet
+from typing import Optional
 import logging
 import os
 
@@ -24,11 +25,11 @@ app = Flask(__name__, static_folder='build')
 
 crypto = Fernet(CONSTANTS['KEY'].encode('utf-8'))
 
-db: DatabaseDriver = None
-mail: EmailDriver = None
+db: Optional[DatabaseDriver] = None
+mail: Optional[EmailDriver] = None
 
 schema = JsonSchema(app)
-social: SocialDriver = None
+social: Optional[SocialDriver] = None
 
 if CONSTANTS['DB_TYPE'] == 'mongo':
     logger.warning('DB type is local, using Mongo driver.')

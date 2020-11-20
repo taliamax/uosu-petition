@@ -57,10 +57,10 @@ const Verify = () => {
               open={openModal}
               >
                   <DialogTitle>
-                      Thank you!
+                      Merci! / Thank you!
                   </DialogTitle>
                   <p className="p-5">
-                    Thank you for verifying your email! Your name has officially been added to the petition
+                    Merci de vérifier votre courriel ! Votre nom a été officiellement ajouté à la pétition / Thank you for verifying your email! Your name has officially been added to the petition
                   </p>
               </Dialog>
               <Home />

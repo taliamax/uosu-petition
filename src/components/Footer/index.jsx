@@ -8,7 +8,7 @@ const Footer = () => {
         <div className="row justify-content-around pb-3">
           <div className="col-8 col-md-5">
             <p className={styles.description}>
-              View the code for this website on <a href="https://github.com/upetition/Stop-uOttawa-Surveillance">GitHub</a>
+              Voir le code de ce site sur <a href="https://github.com/taliamax/uosu-petition">GitHub</a> / View the code for this website on <a href="https://github.com/taliamax/uosu-petition">GitHub</a>
             </p>
           </div>
           <div className="col-2">

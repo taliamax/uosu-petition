@@ -10,10 +10,17 @@ const Home = () => {
       <div className="row align-items-center pb-5">
         <div className="col-lg-8 col-md-12">
           <div className="row justify-content-center mt-5 p-0">
-            <h3>Stop uOttawa&apos;s surveillance plans</h3>
+            <h3>Ajoutez votre voix pour réparer l'apprentissage virtuel / Add your voice to help fix online learning</h3>
           </div>
           <div className="row justify-content-center mt-2 p-0">
-          <p className={styles.contentSize}>The University of Ottawa is planning to force students to use Respondus Lockdown browser and monitoring. This is a gross invasion of student privacy and insults the integrity of every student. <br /><br />Help us put a stop to this. Sign the <a href="/petition">petition</a> now</p>
+          <p className={styles.contentSize}>Ce semestre, l'apprentissage virtuel ne s'est pas exactement déroulé comme prévu. Il y a beaucoup d'améliorations qui doivent se faire, qu'il s'agisse de la charge de travail, de l'accès aux cours ou de la prestation des cours. Nous traversons une crise d'insécurité financière, une crise de santé mentale et une crise de santé publique, tout en payant les mêmes frais de scolarité pour une éducation de moindre qualité.<br /><br />
+
+          Nous demandons à l'Université d'Ottawa d'introduire le même système de notation (satisfaisant/non-satisfaisant) que celui de Carleton, de réduire la charge de travail pour le prochain semestre, d'enregistrer des cours syncrhones, et bien plus encore. Consultez notre pétition et signez-la dès maintenant<br /><br />
+
+          Online learning this semester has not exactly gone to plan. There's lots of improve, from workload, to course access, to course delivery. We're going through a financial insecurity crisis, a mental health crisis and a public health crisis, all while paying the same rates of tuition for a lower quality education.<br /><br />
+
+          We're calling on uOttawa to introduce the same pass/fail grading system Carleton got, reduce the workload for next semester, record synchronous lectures, and much more. Check out our petition and sign now.
+          </p>
           </div>
           <div className="row justify-content-center align-content-center pb-5">
               <PetitionForm />
@@ -23,7 +30,7 @@ const Home = () => {
           <Card>
           <TwitterTimelineEmbed
             sourceType="profile"
-            screenName="uPetitionCa"
+            screenName="seuo_uosu"
             options={{height: 400}}
           />
           </Card>

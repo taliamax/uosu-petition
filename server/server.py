@@ -59,23 +59,36 @@ def add_student():
     student_email = data['student_email']
 
     if not re.search('@uottawa.ca$', student_email):
-        error = jsonify({'error': 'Email must be a university of ottawa email', 'created': False})
+        error = jsonify({
+            'error': 'Le courriel doit être un courriel de '
+            'l\'Université d\'Ottawa / Email must be a university of ottawa email',
+            'created': False
+        })
         return make_response(error, 400)
 
     student_name = data['student_name']
 
     if re.search('anonymous', student_name):
-        error = jsonify({'error': 'Anonymous is not a valid name', 'created': False})
+        error = jsonify({
+            'error': 'Anonyme n\'est pas un nom valide / Anonymous is not a valid name',
+            'created': False
+        })
         return make_response(error, 400)
 
     try:
         student_number = int(data['student_number'])
     except Exception:
-        error = jsonify({'error': 'Student number must be a number', 'created': False})
+        error = jsonify({
+            'error': 'Le numéro d\'étudiant doit être un numéro / Student number must be a number',
+            'created': False
+        })
         return make_response(error, 400)
 
     if not (1_000_000 <= student_number <= 9_999_999_999):
-        error = jsonify({'error': 'Student number is not valid', 'created': False})
+        error = jsonify({
+            'error': 'Le numéro d\'étudiant n\'est pas valide / Student number is not valid',
+            'created': False
+        })
         return make_response(error, 400)
 
     bytes_student_name = student_name.encode('utf-8')
@@ -100,7 +113,9 @@ def add_student():
 
     if _id is None:
         error = jsonify({
-            'error': 'This email or student number has already been used to sign the petition',
+            'error': 'Ce courriel ou ce numéro d\'étudiant a déjà été '
+            'utilisé pour signer la pétition /'
+            'This email or student number has already been used to sign the petition',
             'created': False
         })
         return make_response(error, 400)
@@ -128,7 +143,10 @@ def verify_student(_id):
     if updated:
         return jsonify({'msg': 'User verified successfully', 'verified': True})
 
-    error = jsonify({'error': 'User was not verified', 'verified': False})
+    error = jsonify({
+        'error': 'L\'utilisateur n\'a pas été vérifié / User was not verified',
+        'verified': False
+    })
 
     return make_response(error, 400)
 
@@ -236,7 +254,10 @@ def submit_testimonial():
 
     if _id is None:
         logging.info('Failed to submit testimonial %s' % testimonial)
-        error = jsonify({'error': 'Could not submit testimonial', 'success': False})
+        error = jsonify({
+            'error': 'Impossible de soumettre un témoignage / Could not submit testimonial',
+            'success': False
+        })
         return make_response(error, 400)
 
     if social is not None:
@@ -259,7 +280,10 @@ def get_testimonials():
     try:
         data = db.get_testimonials()
     except Exception:
-        return jsonify({'success': False, 'error': 'Could not retrieve testimonials'})
+        return jsonify({
+            'success': False,
+            'error': 'Impossible de récupérer les témoignages / Could not retrieve testimonials'
+        })
 
     for item in data:
         item['testimonial'] = item['testimonial'].replace('\n', '<br />')
@@ -272,7 +296,7 @@ def validation_error(e):
     logger.debug(e)
     return make_response(
         jsonify({
-            'error': 'Problem validating data',
+            'error': 'Problème de validation des données / Problem validating data',
             'errors': [validation_error.message for validation_error in e.errors]
         }),
         400
@@ -284,7 +308,7 @@ def validation_error(e):
 def bad_request(error):
     logger.info('Hit route %s', request.path)
     logger.info('Request data: %s', request.get_json())
-    json_response = jsonify({'error': 'Something went wrong'})
+    json_response = jsonify({'error': 'Quelque chose a mal fonctionné / Something went wrong'})
     return make_response(json_response, 400)
 
 
@@ -293,7 +317,7 @@ def bad_request(error):
 def page_not_found(error):
     logger.info('Hit route %s', request.path)
     logger.warning('Route does not exist')
-    json_response = jsonify({'error': 'Page not found'})
+    json_response = jsonify({'error': 'Page non trouvée / Page not found'})
     return make_response(json_response, CONSTANTS['HTTP_STATUS']['404_NOT_FOUND'])
 
 
